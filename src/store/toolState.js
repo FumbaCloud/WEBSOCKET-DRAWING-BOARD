@@ -9,7 +9,6 @@ class ToolState {
 
   setTool(tool) {
     this.tool = tool
-    console.log(tool)
   }
 }
 
