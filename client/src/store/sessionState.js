@@ -3,6 +3,9 @@ const {makeAutoObservable} = require("mobx");
 class SessionState {
   socket = null
   sessionId = null
+  username = ''
+
+
 
   constructor() {
     makeAutoObservable(this)
@@ -14,6 +17,10 @@ class SessionState {
 
   setSessionId(id) {
     this.sessionId = id
+  }
+
+  setUsername(username) {
+    this.username = username
   }
 }
 
