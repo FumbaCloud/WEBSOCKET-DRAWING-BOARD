@@ -1,7 +1,9 @@
-import Toolbar from "./components/Toolbar";
+import React from 'react';
 import Canvas from "./components/Canvas";
+import Toolbar from "./components/Toolbar";
+import Dialog from "./components/Dialog";
+import { v4 as uuidv4 } from 'uuid';
 import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
-import ModalForm from "./components/ModalForm";
 
 function App() {
 
@@ -16,12 +18,12 @@ function App() {
             </div>
 
             <div style={{outline: '2px solid #f7f7fa', cursor: 'crossHair'}}>
+              <Dialog />
               <Canvas width={1000} height={600}/>
-              <ModalForm />
             </div>
 
           </Route>
-          <Redirect to={`f${(+new Date).toString(16)}`} />
+          <Redirect to={uuidv4()} />
         </Switch>
       </div>
     </BrowserRouter>

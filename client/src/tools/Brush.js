@@ -22,7 +22,7 @@ export default class Brush extends Tool {
     this.mouseDown = false
     this.socket.send(JSON.stringify({
       method: 'draw',
-      id: this.id,
+      id: this.sessionId,
       figure: {
         type: 'finish',
       }
@@ -33,7 +33,7 @@ export default class Brush extends Tool {
     if(this.mouseDown) {
       this.socket.send(JSON.stringify({
         method: 'draw',
-        id: this.id,
+        id: this.sessionId,
         figure: {
           type: 'brush',
           x: event.pageX - event.target.offsetLeft,

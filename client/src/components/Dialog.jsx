@@ -1,24 +1,20 @@
-import React, {useRef, useState} from 'react';
-import {Button, Input, InputGroup, Modal} from "rsuite";
-import modalState from "../store/modalState";
+import React, {useRef} from 'react';
 import {observer} from "mobx-react-lite";
+import modalState from "../store/modalState";
+import sessionState from "../store/sessionState";
+import {Button, Input, InputGroup, Modal} from "rsuite";
 
-const ModalForm = observer(() => {
-
+const Dialog = observer(() => {
 
   const usernameRef = useRef()
-  const [modal, setModal] = useState(true)
-
-
-
   const connectionHandler = () => {
-    modalState.setUsername(usernameRef.current.value)
-    setModal(false)
+    sessionState.setUsername(usernameRef.current.value)
+    modalState.setModalState(false)
   }
 
   return (
     <>
-      <Modal backdrop={'static'} size={'xs'} open={modal}>
+      <Modal backdrop={'static'} size={'xs'} open={modalState.opened}>
         <Modal.Title>Set Your Username</Modal.Title>
         <Modal.Body style={{display: 'flex', gap: '15px'}}>
           <InputGroup>
@@ -33,4 +29,4 @@ const ModalForm = observer(() => {
   );
 });
 
-export default ModalForm;
+export default Dialog;

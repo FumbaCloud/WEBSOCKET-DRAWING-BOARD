@@ -7,13 +7,7 @@ export default class Tool {
     this.destroyListeners()
   }
 
-  set strokeColor(color) {
-    this.ctx.fillStyle = color
-  }
-
-  set brushSize(width) {
-    this.ctx.fillStyle = width
-  }
+z
 
   destroyListeners() {
     this.canvas.onmousedown = null
